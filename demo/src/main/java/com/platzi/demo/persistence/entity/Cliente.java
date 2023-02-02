@@ -3,6 +3,8 @@ package com.platzi.demo.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="clientes")
 public class Cliente {
@@ -23,6 +25,11 @@ public class Cliente {
     private String correoElectronico;
 
 
+    @OneToMany(mappedBy = "cliente")
+    private List<Compra> compras;
+
+
+    //Getters y Setters
     public Integer getId() {
         return id;
     }
